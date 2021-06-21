@@ -1,6 +1,8 @@
 name: Manually Release
 on:
   workflow_dispatch:
+    branches:
+        - main
     inputs:
       version:
         description: 'Version'
@@ -17,4 +19,3 @@ jobs:
       - run: |
           echo "Trying to release ${{ github.event.inputs.version }}!"
           echo "- Release notes ${{ github.event.inputs.release_notes }}!"
-          
