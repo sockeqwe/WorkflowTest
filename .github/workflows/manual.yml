@@ -1,0 +1,20 @@
+name: Manually Release
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version'
+        required: true
+      release_notes:
+        description: 'Release notes'
+        required: false
+        default: 'The Octoverse'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Trying to release ${{ github.event.inputs.version }}!"
+          echo "- Release notes ${{ github.event.inputs.release_notes }}!"
+          
